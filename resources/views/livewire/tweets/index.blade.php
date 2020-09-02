@@ -2,12 +2,16 @@
     <div class="card">
         <div class="card-header">Timeline</div>
         <div class="card-body">
-            <div class="media">
-                <div class="media-body">
-                    <h5 class='mb-0'>CiperX</h5>
-                    <small class="text-secondary">Tweeted 2 Hours Ago</small>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque odio, iure a cupiditate ducimus vitae velit iste facere, doloribus id natus voluptates. Provident consequatur perferendis nisi laudantium earum aspernatur incidunt.</p>
-                </div>
+            @foreach ($tweets as $tweet)
+                <livewire:tweets.single :key="$tweet->id" :tweet="$tweet">
+            @endforeach
+            <div class="row justify-content-center">
+                {{ $tweets->links() }}
+            </div>
+            <div class="row justify-content-center">
+                @if ($tweets->hasMorePages())
+                    <button class="btn btn-primary" wire:click.prevent="loadMore">Load More</button>
+                @endif
             </div>
         </div>
     </div>
