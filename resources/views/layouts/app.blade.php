@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? "Aplikasi Livewire" }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -34,7 +34,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a href="/users/table" class="nav-link" >Users Table</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/products" class="nav-link" >All Products</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
