@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // dd(auth()->user()->carts);
         return view('home');
     }
 }

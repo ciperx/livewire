@@ -51,6 +51,11 @@ class User extends Authenticatable
 
     public function carts()
     {
-        return $this->belongsToMany(Product::class, 'carts', 'user_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'carts', 'user_id', 'product_id')->withTimestamps();
+    }
+
+    public function addedToCart(Product $product)
+    {
+        return $this->carts()->find($product->id);
     }
 }
